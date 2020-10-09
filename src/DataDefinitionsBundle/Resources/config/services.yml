@@ -326,6 +326,10 @@ services:
         tags:
             - { name: data_definitions.setter, type: relation, form-type: Wvision\Bundle\DataDefinitionsBundle\Form\Type\NoConfigurationType }
 
+    Wvision\Bundle\DataDefinitionsBundle\Setter\ImageGallerySetter:
+        tags:
+            - { name: data_definitions.setter, type: image_gallery, form-type: Wvision\Bundle\DataDefinitionsBundle\Form\Type\NoConfigurationType }
+
     Wvision\Bundle\DataDefinitionsBundle\EventListener\ObjectDeleteListener:
         tags:
             - { name: kernel.event_listener, event: pimcore.dataobject.postDelete, method: onDataObjectDelete }
