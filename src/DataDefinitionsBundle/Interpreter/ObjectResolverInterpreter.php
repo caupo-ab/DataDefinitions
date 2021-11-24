@@ -44,12 +44,17 @@ class ObjectResolverInterpreter implements InterpreterInterface
          * @var Listing $listing
          */
         $listing = $class::$lookup($value);
-        $listing->setUnpublished($configuration['match_unpublished']);
 
-        if ($listing->count() === 1) {
-            return $listing->current();
+        if ($listing instanceof Listing) {
+            $listing->setUnpublished($configuration['match_unpublished']);
+
+            if ($listing->count() === 1) {
+                return $listing->current();
+            }    
+        } else {
+            return $listing;
         }
-
+        
         return null;
     }
 }
